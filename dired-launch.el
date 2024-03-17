@@ -3,7 +3,7 @@
 ;; Author: David Thompson
 ;; Version: 0.2
 ;; Keywords: dired, launch
-;; URL: https://github.com/thomp/dired-launch
+;; URL: https://codeberg.org/thomp/dired-launch
 ;; Package-Requires: ((emacs "24.3"))
 
 ;;; Commentary:
