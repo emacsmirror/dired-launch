@@ -177,9 +177,11 @@ current dired buffer."
         ((eq system-type 'cygwin)
          (dired-launch-homebrew
           (dired-get-marked-files t current-prefix-arg)))
-	((eq system-type 'windows-nt) (dired-map-over-marks
-				       (w32-shell-execute "open" (dired-get-filename) nil 1) 
-				       nil))
+	((eq system-type 'windows-nt)
+         (warn "Disregarding dired-launch-default-launcher; disregarding dired-launch-extensions-map")
+         (dired-map-over-marks
+	  (w32-shell-execute "open" (dired-get-filename) nil 1)
+	  nil))
 	(t (error "%s is not supported" system-type))))
 
 ;;;###autoload
