@@ -169,20 +169,20 @@ executable."
 current dired buffer."
   (interactive) 
   (cond ((eq system-type 'darwin)
-	 (dired-launch-homebrew
-	  (dired-get-marked-files t current-prefix-arg)))
-	((or (eq system-type 'gnu/linux) (eq system-type 'berkeley-unix))
-	 (dired-launch-homebrew
-	  (dired-get-marked-files t current-prefix-arg)))
+         (dired-launch-homebrew
+          (dired-get-marked-files t current-prefix-arg)))
+        ((or (eq system-type 'gnu/linux) (eq system-type 'berkeley-unix))
+         (dired-launch-homebrew
+          (dired-get-marked-files t current-prefix-arg)))
         ((eq system-type 'cygwin)
          (dired-launch-homebrew
           (dired-get-marked-files t current-prefix-arg)))
-	((eq system-type 'windows-nt)
+        ((eq system-type 'windows-nt)
          (warn "Disregarding dired-launch-default-launcher; disregarding dired-launch-extensions-map")
          (dired-map-over-marks
-	  (w32-shell-execute "open" (dired-get-filename) nil 1)
-	  nil))
-	(t (error "%s is not supported" system-type))))
+          (w32-shell-execute "open" (dired-get-filename) nil 1)
+          nil))
+        (t (error "%s is not supported" system-type))))
 
 ;;;###autoload
 (defun dired-launch-with-prompt-command ()
