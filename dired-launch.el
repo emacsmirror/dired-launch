@@ -110,7 +110,7 @@ executable."
 		   (t
 		    ;; The specified executable appears to be missing
 		    (let ((message
-			   (format "%s is broken: could not find executable %s for file %s"
+			   (format "problem with %s: could not find executable %s for file %s"
 				   (cond ((stringp preferred-launch-cmd-spec)
 					  "dired-launch-extensions-map")
 					 (t
