@@ -57,16 +57,21 @@ If you prefer different key bindings, consider modifying the default keybinding(
 
 ### Using dired-launch-extensions-map
 
-One can use `dired-launch-extensions-map` to specify, for a given file extension, one or more preferred applications by simply specifying the application as a string.
+One can use `dired-launch-extensions-map` to specify, for a given file extension, one or more preferred applications. The keyword `:dir` can be used for handling directories.
 
 ```
 (setf dired-launch-extensions-map
-      '(;; specify LibreOffice as the preferred application for
-        ;; a Microsoft Excel file with the xslx extension
+      '(;; directories
+        (:dir    ("pcmanfm" "nautilus"))
+        ;; docx documents
+        ("docx" ("lowriter" "swriter"))
+        ;; slide decks
+        ("odp"  ("loimpress" "simpress"))
+        ;; an OpenDocument odt documents
+        ("odt" ("libreofficedev5.3" "abiword"))
+        ;; Microsoft Excel files
         ("xlsx" ("libreofficedev5.3"))
-        ;; specify LibreOffice and Abiword as preferred applications for
-        ;; an OpenDocument text file with the odt extension
-        ("odt" ("libreofficedev5.3" "abiword"))))
+        ))
 ```
 
 One can also use `dired-launch-extensions-map` to specify, for a given file extension, an arbitrary function to invoke.
