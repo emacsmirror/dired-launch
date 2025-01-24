@@ -259,9 +259,11 @@ as an alist, the value corresponding to the alist key."
     completions))
 
 (defun dired-launch--executables-list-using-user-extensions-map (file)
-  (let* ((extension (string-trim (or (file-name-extension file nil)
-				     "")))
-	 (match (dired-launch-extensions-map-get extension)))
+  (let* ((extension (if (file-directory-p file)
+                        :dir
+                      (string-trim (or (file-name-extension file nil)
+                                       ""))))
+         (match (dired-launch-extensions-map-get extension)))
     (cadr match)))
 
 
