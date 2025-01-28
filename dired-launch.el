@@ -178,7 +178,8 @@ current dired buffer."
          (dired-launch-homebrew
           (dired-get-marked-files t current-prefix-arg)))
         ((eq system-type 'windows-nt)
-         (warn "Disregarding dired-launch-default-launcher; disregarding dired-launch-extensions-map")
+         (display-warning 'dired-launch
+                          "Disregarding dired-launch-default-launcher; disregarding dired-launch-extensions-map")
          (dired-map-over-marks
           (w32-shell-execute "open" (dired-get-filename) nil 1)
           nil))
