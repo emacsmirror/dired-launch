@@ -99,6 +99,10 @@ Here, the second member of `dired-launch-extensions-map` specifies, for files wi
        '("txt" (("emacs" find-file)))))
 ```
 
+### Suppressing warnings
+
+If the warning verbosity is a bit excessive, try `(push 'dired-launch warning-suppress-types)`.
+
 ### Linux
 
 Change the preferred (default) application for a given file type by invoking mimeopen with the '-d' flag:
