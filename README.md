@@ -101,7 +101,7 @@ Here, the second member of `dired-launch-extensions-map` specifies, for files wi
 
 ### Suppressing warnings
 
-If the warning verbosity is a bit excessive, try `(push 'dired-launch warning-suppress-types)`.
+If the warning verbosity is a bit excessive, try `(push '(dired-launch) warning-suppress-types)`.
 
 ### Linux
 
